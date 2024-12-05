@@ -1,4 +1,5 @@
 class Human:
+    head = True
     def __init__(self, name, age) -> None:
         self.name = name
         self.age = age
@@ -17,3 +18,10 @@ den.age += 10
 print(den.age)
 # input()
 print(len(den))
+print(den.head)
+
+den.head = False
+Human.head = False
+print(den.head)
+
+
