@@ -7,6 +7,8 @@ class User:
         self.password = hash(password)
         self.age = age
 
+    def __str__(self):
+        return self.nickname
 
 class Video:
     time_now = 0
@@ -26,7 +28,7 @@ class UrTube:
     def log_in(self, nickname, password):
         for user in self.users:
             if user.nickname == nickname and user.password == hash(password):
-                self.current_user = user
+                self.current_user = str(user)
 
     def register(self, nickname, password, age):
         if any(user.nickname == nickname for user in self.users):
@@ -34,14 +36,15 @@ class UrTube:
         else:
             user = User(nickname, password, age)
             self.users.append(user)
-            self.current_user = user.nickname
+            self.current_user = str(user)
 
     def log_out(self):
         self.current_user = None
 
     def add(self, *args):
         for video in args:
-            if any(vid_in_vids.title == video.title for vid_in_vids in
+            if any(video_from_videos.title == video.title for
+                   video_from_videos in
                    self.videos):
                 continue
             else:
