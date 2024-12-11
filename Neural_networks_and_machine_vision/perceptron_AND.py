@@ -20,7 +20,6 @@ class Perceptron:
 
         self.weights += error * inputs * learning_rate
         self.bias += error * learning_rate
-        print(self.weights, "     ", self.bias)
 
 
 if __name__ == '__main__':
@@ -30,10 +29,32 @@ if __name__ == '__main__':
                                    dtype=torch.float64)
     training_outputs = torch.tensor([0, 0, 0, 1], dtype=torch.float64)
 
-    for _ in range(10):
-        for inputs, target in zip(training_inputs, training_outputs):
-            perceptron.train(inputs, target)
+    # for _ in range(5):
+    #     for inputs, target in zip(training_inputs, training_outputs):
+    #         perceptron.train(inputs, target)
+    #
+    # for inputs, target in zip(training_inputs, training_outputs):
+    #     output = perceptron.feed_forward(inputs)
+    #     print(f"Входы: {inputs.tolist()} Выход: {int(output)}")
 
-    for inputs, target in zip(training_inputs, training_outputs):
-        output = perceptron.feed_forward(inputs)
-        print(f"Входы: {inputs.tolist()} Выход: {int(output)}")
+    # correct = 0
+    # for inputs, target in zip(training_inputs, training_outputs):
+    #     output = perceptron.feed_forward(inputs)
+    #     if output == target:
+    #         correct += 1
+    # print(f"Точность: {correct / len(training_outputs) * 100:.2f}%")
+
+    max_epochs = 1000  # Максимальное число эпох
+    for epoch in range(max_epochs):
+        total_error = 0
+        for inputs, target in zip(training_inputs, training_outputs):
+            output = perceptron.feed_forward(inputs)
+            error = target - output
+            total_error += abs(error)
+            perceptron.train(inputs, target)
+        if total_error == 0:
+            print(f"Обучение завершено за {epoch + 1} эпох.")
+            break
+    else:
+        print(
+            "Достигнуто максимальное число эпох, но персептрон всё ещё обучается.")
