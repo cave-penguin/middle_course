@@ -42,8 +42,8 @@ class Bird(Animal):
 class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
 
-    def __init__(self, _cords):
-        super().__init__(_cords)
+    # def __init__(self, _cords):
+    #     super().__init__(_cords)
 
     def dive_in(self, dz):
         self._cords[2] -= int((self.speed / 2 * abs(dz)))
