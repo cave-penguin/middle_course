@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 
 class Animal:
@@ -36,7 +36,7 @@ class Bird(Animal):
     beak = True
 
     def lay_eggs(self):
-        print(f"Here are(is) {random.randint(1, 4)} eggs for you")
+        print(f"Here are(is) {randint(1, 4)} eggs for you")
 
 
 class AquaticAnimal(Animal):
@@ -55,6 +55,10 @@ class PoisonousAnimal(Animal):
 
 class Duckbill(PoisonousAnimal, Bird, AquaticAnimal):
     sound = "Click-click-click"
+    
+    def __init__(self, speed):
+        super().__init__(speed)
+    
 
 
 db = Duckbill(10)
