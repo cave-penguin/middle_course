@@ -96,6 +96,8 @@ print(circle1.get_sides())
 
 # Проверка периметра (круга), это и есть длина:
 print(len(circle1))
+print(len(triangle1))
+print(len(cube1))
 
 # Проверка объёма (куба):
 print(cube1.get_volume())
