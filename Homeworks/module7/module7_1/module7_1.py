@@ -17,7 +17,7 @@ class Shop:
     def get_products(self):
         all_products = ''
         if not os.path.exists(self.__file_name):
-            with open(self.__file_name, 'w', encoding='utf8') as file:
+            with open(self.__file_name, 'w', encoding='utf-8') as file:
                 file.write('')
         with open(self.__file_name, 'r') as file:
             for product in file.readlines():
