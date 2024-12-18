@@ -30,7 +30,7 @@ class Shop:
             if product.name in all_products:
                 print(f"Продукт {product.name} уже есть в магазине")
             else:
-                with open(self.__file_name, 'a') as file:
+                with open(self.__file_name, 'a', encoding='utf-8') as file:
                     file.write(f"{product.name}, {product.weight}, "
                                f"{product.category}\n")
 
