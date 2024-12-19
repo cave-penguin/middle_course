@@ -19,16 +19,21 @@ class WordsFinder:
 
     def find(self, word):
         all_words = self.get_all_words()
+        result = {}
         for name, words in all_words.items():
             for index, word_from_file in enumerate(words):
                 if word.lower() == word_from_file:
-                    return {name: index + 1}
+                    result[name] = index + 1
+                    break
+        return result
 
     def count(self, word):
         all_words = self.get_all_words()
+        result = {}
         for name, words in all_words.items():
             if word.lower() in words:
-                return {name: words.count(word.lower())}
+                result[name] = words.count(word.lower())
+        return result
 
 
 finder2 = WordsFinder('test_file.txt')
