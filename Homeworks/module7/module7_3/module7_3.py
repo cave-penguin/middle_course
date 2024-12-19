@@ -11,8 +11,8 @@ class WordsFinder:
                 for string in strings:
                     p = [',', '.', '=', '!', '?', ';', ':', ' - ']
                     for symbol in p:
-                        string_without_p = string.lower().format(symbol,
-                                                                 '').split()
+                        string = string.replace(symbol, '')
+                    string_without_p = string.lower().split()
                     strings_list.extend(string_without_p)
                 all_words[name] = strings_list
         return all_words
@@ -37,6 +37,11 @@ class WordsFinder:
 
 
 finder2 = WordsFinder('test_file.txt')
-print(finder2.get_all_words())  # Все слова
-print(finder2.find('TEXT'))  # 3 слово по счёту
-print(finder2.count('teXT'))  # 4 слова teXT в тексте всего
+finder3 = WordsFinder('test_file2.txt')
+print(finder2.get_all_words())
+print(finder2.find('TEXT'))
+print(finder2.count('teXT'))
+
+print(finder3.get_all_words())
+print(finder3.find('Need'))
+print(finder3.count('That'))
