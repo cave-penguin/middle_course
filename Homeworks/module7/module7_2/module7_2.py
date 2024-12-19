@@ -18,7 +18,7 @@ info = [
     'Спасибо!'
 ]
 
-name = "sample.txt"
+name = "test_file.txt"
 
 result = custom_write('test.txt', info)
 

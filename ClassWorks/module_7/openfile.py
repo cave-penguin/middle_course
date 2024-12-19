@@ -1,6 +1,6 @@
 from pprint import pprint
 
-name = 'sample.txt'
+name = 'test_file.txt'
 text = 'Hello, my darling'
 file = open(name, 'r', encoding='utf-8')
 print(file.tell())
