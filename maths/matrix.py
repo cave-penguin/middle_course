@@ -4,10 +4,14 @@ import numpy as np
 # b = np.ones((7, 5))
 # c = np.full((5, 6), 7)
 # d = np.random.random((5, 6))
+v = np.arange(0, 24, 2)
 # print(a.shape)
 # print(b.shape)
 # print(c.shape)
 # print(d.shape)
+print(v)
+s = v.reshape((3, 4))
+print(s)
 
 # print(a[:, 1])
 
