@@ -10,14 +10,15 @@ def file_select():
         filetypes=(("Text file", ".txt"), ("All files", "*")),
     )
     print(filename)
-    text["text"] = text["text"] + "" + filename
+    print(text['text'])
+    text["text"] = text["text"] + " " + filename
     os.startfile(filename)
 
 
 window = tkinter.Tk()
 window.title("Explorer")
-window.geometry("450x200")
-window.configure(bg="black")
+window.geometry("350x148")
+window.configure(bg="red")
 window.resizable(False, False)
 text = tkinter.Label(
     window, text="File", height=5, width=49, background="silver",
