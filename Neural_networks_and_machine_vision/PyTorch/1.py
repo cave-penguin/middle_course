@@ -31,3 +31,23 @@ class XORNet(nn.Module):
 model = XORNet()
 criterion = nn.MSELoss()  # Среднеквадратичная ошибка
 optimizer = optim.SGD(model.parameters(), lr=0.1)
+
+num_epochs = 1000
+for epoch in range(num_epochs):
+    # Forward pass
+    outputs = model(X)
+    loss = criterion(outputs, y)
+
+    # Backward and optimize
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    if (epoch+1) % 100 == 0:
+        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+
+with torch.no_grad():
+    predicted = model(X)
+    predicted = (predicted > 0.5).float()  # Преобразуем в бинарный выход
+    print('Predicted:', predicted)
+    print('Actual:', y)
